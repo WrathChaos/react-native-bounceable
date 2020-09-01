@@ -10,16 +10,16 @@ import {
 export interface IProps {
   style?: ViewStyle;
   onPress?: () => void;
-  useNativeDriver: boolean;
+  useNativeDriver?: boolean;
   children?: React.ReactNode;
 }
 
 interface IState {
-  springValue: Animated.Value;
+  springValue: any;
 }
 
 export default class RNBounceable extends React.Component<IProps, IState> {
-  constructor(props) {
+  constructor(props: IProps) {
     super(props);
     this.state = {
       springValue: new Animated.Value(1),
@@ -28,8 +28,8 @@ export default class RNBounceable extends React.Component<IProps, IState> {
 
   springAnimation = () => {
     const { springValue } = this.state;
-    const { useNativeDriver, onPress } = this.props;
-    springValue.setValue(0.7);
+    const { useNativeDriver = true, onPress } = this.props;
+    springValue.setValue(0.9);
     Animated.spring(springValue, {
       toValue: 1,
       friction: 3,
@@ -40,18 +40,18 @@ export default class RNBounceable extends React.Component<IProps, IState> {
   };
 
   render() {
-    const { springValue } = this.state;
-    const { children, useNativeDriver, onPress, style, ...rest } = this.props;
+    const { children, style } = this.props;
     return (
       <TouchableOpacity
+        activeOpacity={1}
+        {...this.props}
         onPress={this.springAnimation.bind(this, Easing.bounce)}
       >
-        <View
-          {...rest}
-          style={[{ transform: [{ scale: springValue }] }, style]}
+        <Animated.View
+          style={[{ transform: [{ scale: this.state.springValue }] }, style]}
         >
           {children}
-        </View>
+        </Animated.View>
       </TouchableOpacity>
     );
   }
