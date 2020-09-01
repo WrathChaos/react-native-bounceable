@@ -1,57 +1,26 @@
-<img alt="React Native Typescript Library Starter" src="assets/logo.png" width="1050"/>
+<img alt="React Native Bounceable" src="assets/logo.png" width="1050"/>
 
-[![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-library-starter)
+[![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-bounceable)
 
-[![React Native Typescript Library Starter](https://img.shields.io/badge/-Extremely%20easy%20to%20create%20a%20React%20Native%20Component%20Library%20with%20both%20Stateful%20and%20Functional%20Component%20Examples-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-typescript-library-starter)
+[![React Native Bounceable](https://img.shields.io/badge/-Extremely%20easy%20to%20create%20a%20React%20Native%20Component%20Library%20with%20both%20Stateful%20and%20Functional%20Component%20Examples-orange?style=for-the-badge)](https://github.com/WrathChaos/react-native-bounceable)
 
-[![npm version](https://img.shields.io/npm/v/react-native-typescript-library-starter.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-typescript-library-starter)
-[![npm](https://img.shields.io/npm/dt/react-native-typescript-library-starter.svg?style=for-the-badge)](https://www.npmjs.com/package/react-native-typescript-library-starter)
+[![npm version](https://img.shields.io/npm/v/@freakycoder/react-native-bounceable.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-bounceable)
+[![npm](https://img.shields.io/npm/dt/@freakycoder/react-native-bounceable.svg?style=for-the-badge)](https://www.npmjs.com/package/@freakycoder/react-native-bounceable)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 <p align="center">
-  <img alt="React Native Typescript Library Starter"
+  <img alt="React Native Bounceable"
         src="assets/Screenshots/typescript.jpg" />
 </p>
-
-## Library Usage
-
-- `npm i`
-- Delete example folder
-- Delete build folder
-- Make your own library into the `lib` folder
-- Change package.json
-- Change README for your own documentation
-- `npm run build`
-
-```
-> react-native-typescript-library-starter@0.1.0 build /Users/kuray/Coursion/MyLibraries/ReactNative/react-native-typescript-library-starter
-> cd lib && tsc && cp ../package.json ../build/dist/ && Echo Build completed!
-
-Build completed!
-```
-
-- Test your build/dist into the new project
-- Finally, time to npm publish :)
-
-### Below part is for Documentation ! Remove above Library Usage
 
 # Installation
 
 Add the dependency:
 
 ```bash
-npm i react-native-typescript-library-starter
-```
-
-## Peer Dependencies
-
-<h5><i>IMPORTANT! You need install them</i></h5>
-
-```js
-"react": ">= 16.x.x",
-"react-native": ">= 0.55.x",
+npm i @freakycoder/react-native-bounceable
 ```
 
 # Usage
@@ -59,32 +28,37 @@ npm i react-native-typescript-library-starter
 ## Import
 
 ```jsx
-import MyComponent from "react-native-typescript-library-starter";
+import RNBounceable from "@freakycoder/react-native-bounceable";
 ```
 
 ## Fundamental Usage
 
+You can put **ANY children component** inside the **RNBounceable** component, it will make it bounce when it is pressed
+
 ```jsx
-<MyComponent />
+<RNBounceable onPress={() => {}}>
+  <View style={styles.bounceButtonStyle}>
+    <Text style={styles.bounceButtonTextStyle}>Bounce</Text>
+  </View>
+</RNBounceable>
 ```
 
 # Configuration - Props
 
-| Property |  Type   | Default | Description                                             |
+Coming Soon with more customizable props
+
+<!-- | Property | Type | Default | Description |
 | -------- | :-----: | :-----: | ------------------------------------------------------- |
-| outline  | boolean |  true   | make the button outline                                 |
-| solid    | boolean |  false  | make the button with a solid background and a shadow    |
-| gradient | boolean |  false  | make the button with a gradient background and a shadow |
-| width    | number  |   150   | change the button's width                               |
+| outline | boolean | true | make the button outline |
+| solid | boolean | false | make the button with a solid background and a shadow |
+| gradient | boolean | false | make the button with a gradient background and a shadow |
+| width | number | 150 | change the button's width | -->
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
+- [ ] More customizable animation props
 - [ ] Write an article about the lib on Medium
-
-# Change Log
-
-Change log will be here !
 
 ## Author
 
@@ -92,4 +66,4 @@ FreakyCoder, kurayogun@gmail.com
 
 ## License
 
-React Native Typescript Library Starter is available under the MIT license. See the LICENSE file for more info.
+React Native Bounceable is available under the MIT license. See the LICENSE file for more info.

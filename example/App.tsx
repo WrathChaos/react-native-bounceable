@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, StatusBar, SafeAreaView } from "react-native";
-import RNBounceable from "./build/dist/RNBounceable";
+import RNBounceable from "@freakycoder/react-native-bounceable";
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.container}>
-        <RNBounceable>
+        <RNBounceable onPress={() => {}}>
           <View style={styles.bounceButtonStyle}>
             <Text style={styles.bounceButtonTextStyle}>Bounce</Text>
           </View>
