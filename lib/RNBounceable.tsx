@@ -10,6 +10,8 @@ import {
 export interface IProps {
   style?: ViewStyle;
   onPress?: () => void;
+  bounceEffect?: number;
+  bounceFriction?: number;
   useNativeDriver?: boolean;
   children?: React.ReactNode;
 }
@@ -28,11 +30,16 @@ export default class RNBounceable extends React.Component<IProps, IState> {
 
   springAnimation = () => {
     const { springValue } = this.state;
-    const { useNativeDriver = true, onPress } = this.props;
-    springValue.setValue(0.9);
+    const {
+      bounceEffect = 0.9,
+      bounceFriction = 3,
+      useNativeDriver = true,
+      onPress,
+    } = this.props;
+    springValue.setValue(bounceEffect);
     Animated.spring(springValue, {
       toValue: 1,
-      friction: 3,
+      friction: bounceFriction,
       useNativeDriver,
     }).start();
     // ?  Outside of the onPress function callback

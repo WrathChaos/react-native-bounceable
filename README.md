@@ -45,19 +45,18 @@ You can put **ANY children component** inside the **RNBounceable** component, it
 
 # Configuration - Props
 
-Coming Soon with more customizable props
-
-<!-- | Property | Type | Default | Description |
-| -------- | :-----: | :-----: | ------------------------------------------------------- |
-| outline | boolean | true | make the button outline |
-| solid | boolean | false | make the button with a solid background and a shadow |
-| gradient | boolean | false | make the button with a gradient background and a shadow |
-| width | number | 150 | change the button's width | -->
+| Property        |   Type   |  Default  | Description                                      |
+| --------------- | :------: | :-------: | ------------------------------------------------ |
+| onPress         | function | undefined | set your own logic for the onPress functionality |
+| style           |  style   | undefined | set the style like any other View container      |
+| bounceEffect    |  number  |    0.9    | change the bounce effect's value                 |
+| bounceFriction  |  number  |     3     | change the bounce effect's friction value        |
+| useNativeDriver | boolean  |   true    | change the useNativeDriver's usage               |
 
 ## Future Plans
 
 - [x] ~~LICENSE~~
-- [ ] More customizable animation props
+- [x] ~~More customizable animation props~~
 - [ ] Write an article about the lib on Medium
 
 ## Author
