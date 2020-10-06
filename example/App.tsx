@@ -2,6 +2,7 @@ import React from "react";
 import { View, ScrollView, StatusBar, SafeAreaView } from "react-native";
 import ProfileHeader from "react-native-profile-header";
 import IGStoryCircle from "react-native-instagram-story-circle";
+import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
 
 const coloredNotification = require("./assets/notification-colored.png");
 const notification = require("./assets/notification.png");
@@ -76,10 +77,22 @@ const stories = [
 const App = () => {
   const [notificationIcon, setNotificationIcon] = React.useState(notification);
 
+  const renderHeader = () => (
+    <ProfileHeader
+      titleText="Profile"
+      thirdIconImageSource={notificationIcon}
+      onThirdIconPress={() => {
+        if (notificationIcon === notification)
+          setNotificationIcon(coloredNotification);
+        else setNotificationIcon(notification);
+      }}
+    />
+  );
+
   const renderIGStories = () => (
     <ScrollView
       horizontal
-      style={{ marginTop: 16 }}
+      style={{ marginTop: 16, paddingBottom: 32 }}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         margin: 8,
@@ -103,20 +116,38 @@ const App = () => {
     </ScrollView>
   );
 
+  const renderAppleCards = () => (
+    <ScrollView
+      contentInset={{ bottom: 150 }}
+      contentContainerStyle={{
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <View style={{ marginBottom: 32 }}>
+        <AppleCard
+          footnoteText=""
+          source={require("./assets/hero_bg_brawlstars_.jpg")}
+          onPress={() => {}}
+          resizeMode="cover"
+        />
+      </View>
+      <AppOfTheDayCard
+        iconSource={require("./assets/Colorfy.jpg")}
+        backgroundSource={require("./assets/ColorfyBG.jpg")}
+        onPress={() => {}}
+        buttonOnPress={() => {}}
+      />
+    </ScrollView>
+  );
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ProfileHeader
-          titleText="Profile"
-          thirdIconImageSource={notificationIcon}
-          onThirdIconPress={() => {
-            if (notificationIcon === notification)
-              setNotificationIcon(coloredNotification);
-            else setNotificationIcon(notification);
-          }}
-        />
+        {renderHeader()}
         {renderIGStories()}
+        {renderAppleCards()}
       </SafeAreaView>
     </>
   );

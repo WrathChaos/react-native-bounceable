@@ -13,6 +13,7 @@
     "@freakycoder/react-native-bounceable": "^0.1.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
+    "react-native-apple-card-views": "^2.0.0",
     "react-native-instagram-story-circle": "^0.1.9",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-profile-header": "^0.1.0"
