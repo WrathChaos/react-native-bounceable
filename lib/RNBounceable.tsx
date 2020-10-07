@@ -1,10 +1,10 @@
 import * as React from "react";
 import {
-  Animated,
-  Easing,
   View,
+  Easing,
+  Animated,
   ViewStyle,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 export interface IProps {
@@ -49,8 +49,7 @@ export default class RNBounceable extends React.Component<IProps, IState> {
   render() {
     const { children, style } = this.props;
     return (
-      <TouchableOpacity
-        activeOpacity={1}
+      <TouchableWithoutFeedback
         {...this.props}
         onPress={this.springAnimation.bind(this, Easing.bounce)}
       >
@@ -59,7 +58,7 @@ export default class RNBounceable extends React.Component<IProps, IState> {
         >
           {children}
         </Animated.View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@freakycoder/react-native-bounceable",
-  "version": "0.1.1",
-  "description": "Fully customizable, animated, bounceable container for React Native",
+  "version": "0.2.0",
+  "description": "Animate and bounce any component with RNBounceable for React Native",
   "main": "./build/dist/RNBounceable.js",
   "repository": "git@github.com:WrathChaos/react-native-bounceable.git",
   "author": "FreakyCoder <kurayogun@gmail.com>",
