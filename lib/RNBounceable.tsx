@@ -8,12 +8,12 @@ import {
 } from "react-native";
 
 export interface IProps {
-  style?: ViewStyle;
   onPress?: () => void;
   bounceEffect?: number;
   bounceFriction?: number;
   useNativeDriver?: boolean;
   children?: React.ReactNode;
+  style?: ViewStyle | Array<ViewStyle>;
 }
 
 interface IState {
