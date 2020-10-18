@@ -5,9 +5,10 @@ import {
   Animated,
   ViewStyle,
   TouchableWithoutFeedback,
+  TouchableWithoutFeedbackProps,
 } from "react-native";
 
-export interface IProps {
+export interface IProps extends TouchableWithoutFeedbackProps {
   onPress?: () => void;
   bounceEffect?: number;
   bounceFriction?: number;
