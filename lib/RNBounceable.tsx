@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  View,
   Easing,
   Animated,
   ViewStyle,
@@ -8,7 +7,7 @@ import {
   TouchableWithoutFeedbackProps,
 } from "react-native";
 
-export interface IProps extends TouchableWithoutFeedbackProps {
+export interface IRNBounceableProps extends TouchableWithoutFeedbackProps {
   onPress?: () => void;
   bounceEffect?: number;
   bounceFriction?: number;
@@ -21,8 +20,11 @@ interface IState {
   springValue: any;
 }
 
-export default class RNBounceable extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+export default class RNBounceable extends React.Component<
+  IRNBounceableProps,
+  IState
+> {
+  constructor(props: IRNBounceableProps) {
     super(props);
     this.state = {
       springValue: new Animated.Value(1),
