@@ -3,17 +3,19 @@ import {
   Easing,
   Animated,
   ViewStyle,
+  StyleProp,
   TouchableWithoutFeedback,
   TouchableWithoutFeedbackProps,
 } from "react-native";
 
+type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
 export interface IRNBounceableProps extends TouchableWithoutFeedbackProps {
   onPress?: () => void;
   bounceEffect?: number;
   bounceFriction?: number;
   useNativeDriver?: boolean;
   children?: React.ReactNode;
-  style?: ViewStyle | Array<ViewStyle>;
+  style?: CustomStyleProp;
 }
 
 interface IState {
