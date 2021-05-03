@@ -33,13 +33,12 @@ export default class RNBounceable extends React.Component<
     };
   }
 
-  springAnimation = () => {
+  animate = () => {
     const { springValue } = this.state;
     const {
       bounceEffect = 0.9,
       bounceFriction = 3,
       useNativeDriver = true,
-      onPress,
     } = this.props;
     springValue.setValue(bounceEffect);
     Animated.spring(springValue, {
@@ -47,8 +46,12 @@ export default class RNBounceable extends React.Component<
       friction: bounceFriction,
       useNativeDriver,
     }).start();
+  };
+
+  onPress = () => {
+    this.animate();
     // ?  Outside of the onPress function callback
-    onPress && onPress();
+    this.props.onPress && this.props.onPress();
   };
 
   render() {
@@ -56,7 +59,7 @@ export default class RNBounceable extends React.Component<
     return (
       <TouchableWithoutFeedback
         {...this.props}
-        onPress={this.springAnimation.bind(this, Easing.bounce)}
+        onPress={this.onPress.bind(this, Easing.bounce)}
       >
         <Animated.View
           style={[{ transform: [{ scale: this.state.springValue }] }, style]}

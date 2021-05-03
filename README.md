@@ -52,6 +52,7 @@ You can put **ANY children component** inside the **RNBounceable** component, it
 | bounceEffect    |  number  |    0.9    | change the bounce effect's value                 |
 | bounceFriction  |  number  |     3     | change the bounce effect's friction value        |
 | useNativeDriver | boolean  |   true    | change the useNativeDriver's usage               |
+| animate         | function |  default  | activate the bounce effect animation             |
 
 ## Future Plans
 
