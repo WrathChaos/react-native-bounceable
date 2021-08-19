@@ -12,7 +12,7 @@
 
 <p align="center">
   <img alt="React Native Bounceable"
-        src="assets/Screenshots/react-native-bounceable.gif" />
+        src="assets/react-native-bounceable.gif" />
 </p>
 
 # Installation
