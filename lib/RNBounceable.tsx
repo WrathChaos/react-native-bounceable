@@ -1,15 +1,14 @@
 import * as React from "react";
 import {
-  Easing,
   Animated,
   ViewStyle,
   StyleProp,
-  TouchableWithoutFeedback,
-  TouchableWithoutFeedbackProps,
+  Pressable,
+  PressableProps,
 } from "react-native";
 
 type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
-export interface IRNBounceableProps extends TouchableWithoutFeedbackProps {
+export interface IRNBounceableProps extends PressableProps {
   onPress?: () => void;
   bounceEffectIn?: number;
   bounceEffectOut?: number;
@@ -23,7 +22,6 @@ export interface IRNBounceableProps extends TouchableWithoutFeedbackProps {
 }
 
 interface IState {
-  springValue: any;
   bounceValue: any;
 }
 
@@ -34,7 +32,6 @@ export default class RNBounceable extends React.Component<
   constructor(props: IRNBounceableProps) {
     super(props);
     this.state = {
-      springValue: new Animated.Value(1),
       bounceValue: new Animated.Value(1),
     };
   }
@@ -62,7 +59,7 @@ export default class RNBounceable extends React.Component<
       onPress,
     } = this.props;
     return (
-      <TouchableWithoutFeedback
+      <Pressable
         {...this.props}
         onPressIn={() => {
           this.bounceTo(bounceEffectIn, bounceVelocityIn, bouncinessIn);
@@ -77,7 +74,7 @@ export default class RNBounceable extends React.Component<
         >
           {children}
         </Animated.View>
-      </TouchableWithoutFeedback>
+      </Pressable>
     );
   }
 }

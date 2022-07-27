@@ -29,7 +29,7 @@
     "sourceMap": true /* Generates corresponding '.map' file. */
   },
   "exclude": [
-    "old-example",
+    "example",
     "example-manual-state",
     "node_modules",
     "babel.config.js",

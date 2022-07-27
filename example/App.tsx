@@ -10,7 +10,6 @@ import {
 import ProfileHeader from "react-native-profile-header";
 import IGStoryCircle from "react-native-instagram-story-circle";
 import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
-import RNBounceable from "./lib/RNBounceable";
 
 const coloredNotification = require("./assets/notification-colored.png");
 const notification = require("./assets/notification.png");
@@ -145,20 +144,7 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <RNBounceable
-        style={{
-          height: 150,
-          width: 300,
-          backgroundColor: "red",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        onPress={() => {
-          alert("hey");
-        }}
-      >
-        <Text style={{ color: "#fff", fontSize: 32 }}>Hello</Text>
-      </RNBounceable>
+
       <SafeAreaView>
         {renderHeader()}
         {renderIGStories()}
