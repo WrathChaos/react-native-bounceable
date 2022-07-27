@@ -15,6 +15,12 @@
         src="assets/react-native-bounceable.gif" />
 </p>
 
+# Version 1 🚀
+
+Finally we're published the `version 1` for the bounceable library
+- Much better animation with `pressIn` and `pressOut` bounces 😍
+- More than 90k downloads and battle tested 💪
+
 # Installation
 
 Add the dependency:
