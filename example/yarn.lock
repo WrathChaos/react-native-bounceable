@@ -781,10 +781,10 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
-"@freakycoder/react-native-bounceable@^1.0.1", "@freakycoder/react-native-bounceable@>= 0.1.1":
-  "integrity" "sha512-1fAC9Sbi40mp1YOl5eBSMzetPJVwlpZxSE1AAVtHnEujfKxuulTM8uG3NmJ3BHc3KVk2fwF6TrS32d56DdXZZQ=="
-  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-1.0.1.tgz"
-  "version" "1.0.1"
+"@freakycoder/react-native-bounceable@^1.0.2", "@freakycoder/react-native-bounceable@>= 0.1.1":
+  "integrity" "sha512-kk3DeR6Cq4hOuJeoDuaFKA47pbW1fgqHogJwrYIvr1GvZ7j+fusbAslOIZFnLdbUg5mIXfKg+WpGt51S4Ya5fg=="
+  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-1.0.2.tgz"
+  "version" "1.0.2"
 
 "@hapi/hoek@^9.0.0":
   "integrity" "sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ=="
