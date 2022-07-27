@@ -5756,6 +5756,11 @@
   "resolved" "https://registry.npmjs.org/react-native-apple-header/-/react-native-apple-header-0.1.1.tgz"
   "version" "0.1.1"
 
+"react-native-bounceable@^0.2.1":
+  "integrity" "sha512-3voGBf7e7z3i06PXSD8ahpzpuKVYURkFOvcxX3ZTBMsJN1hPjnj7B8J6P9PZlSojFMFvqUeGwE7/S2bOzCb1pg=="
+  "resolved" "https://registry.npmjs.org/react-native-bounceable/-/react-native-bounceable-0.2.1.tgz"
+  "version" "0.2.1"
+
 "react-native-codegen@^0.69.1":
   "integrity" "sha512-TOZEqBarczcyYN3iZE3VpKkooOevaAzBq9n7lU0h9mQUvtRhLVyolc+a5K6cWI0e4v4K69I0MqzjPcPeFKo32Q=="
   "resolved" "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.69.1.tgz"

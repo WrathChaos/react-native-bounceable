@@ -36,7 +36,7 @@ export default class RNBounceable extends React.Component<
     };
   }
 
-  bounceTo = (value: number, velocity: number, bounciness: number) => {
+  bounceAnimation = (value: number, velocity: number, bounciness: number) => {
     const { useNativeDriver = true } = this.props;
     Animated.spring(this.state.bounceValue, {
       toValue: value,
@@ -62,10 +62,14 @@ export default class RNBounceable extends React.Component<
       <Pressable
         {...this.props}
         onPressIn={() => {
-          this.bounceTo(bounceEffectIn, bounceVelocityIn, bouncinessIn);
+          this.bounceAnimation(bounceEffectIn, bounceVelocityIn, bouncinessIn);
         }}
         onPressOut={() => {
-          this.bounceTo(bounceEffectOut, bounceVelocityOut, bouncinessOut);
+          this.bounceAnimation(
+            bounceEffectOut,
+            bounceVelocityOut,
+            bouncinessOut,
+          );
         }}
         onPress={onPress}
       >
