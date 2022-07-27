@@ -10,7 +10,7 @@ import {
 import ProfileHeader from "react-native-profile-header";
 import IGStoryCircle from "react-native-instagram-story-circle";
 import { AppleCard, AppOfTheDayCard } from "react-native-apple-card-views";
-import RNBounceable from "@freakycoder/react-native-bounceable";
+import RNBounceable from "./lib/RNBounceable";
 
 const coloredNotification = require("./assets/notification-colored.png");
 const notification = require("./assets/notification.png");

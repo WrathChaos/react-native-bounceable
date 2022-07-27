@@ -781,10 +781,10 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
-"@freakycoder/react-native-bounceable@>= 0.1.1":
-  "integrity" "sha512-J8WBOYxbm/um7SqXYneduZ08T5Kin9z+ixsS3wOLtpeNvKscuqmDEgsgefTYydeSIoI5dOfWmklnRRgu5i/8nA=="
-  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-0.2.5.tgz"
-  "version" "0.2.5"
+"@freakycoder/react-native-bounceable@^1.0.1", "@freakycoder/react-native-bounceable@>= 0.1.1":
+  "integrity" "sha512-1fAC9Sbi40mp1YOl5eBSMzetPJVwlpZxSE1AAVtHnEujfKxuulTM8uG3NmJ3BHc3KVk2fwF6TrS32d56DdXZZQ=="
+  "resolved" "https://registry.npmjs.org/@freakycoder/react-native-bounceable/-/react-native-bounceable-1.0.1.tgz"
+  "version" "1.0.1"
 
 "@hapi/hoek@^9.0.0":
   "integrity" "sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ=="
@@ -5755,11 +5755,6 @@
   "integrity" "sha512-olhk1icxbmX4p320+iE3NunTQOlqBHMxHp/HcQ3XiUpPzekLPhJKK0r5dZfp80LEdcdxnZKhJMJqq0FquIG/VQ=="
   "resolved" "https://registry.npmjs.org/react-native-apple-header/-/react-native-apple-header-0.1.1.tgz"
   "version" "0.1.1"
-
-"react-native-bounceable@^0.2.1":
-  "integrity" "sha512-3voGBf7e7z3i06PXSD8ahpzpuKVYURkFOvcxX3ZTBMsJN1hPjnj7B8J6P9PZlSojFMFvqUeGwE7/S2bOzCb1pg=="
-  "resolved" "https://registry.npmjs.org/react-native-bounceable/-/react-native-bounceable-0.2.1.tgz"
-  "version" "0.2.1"
 
 "react-native-codegen@^0.69.1":
   "integrity" "sha512-TOZEqBarczcyYN3iZE3VpKkooOevaAzBq9n7lU0h9mQUvtRhLVyolc+a5K6cWI0e4v4K69I0MqzjPcPeFKo32Q=="
