@@ -1,6 +1,6 @@
 {
   "name": "@freakycoder/react-native-bounceable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Animate and bounce any component with RNBounceable for React Native",
   "main": "./build/dist/RNBounceable.js",
   "repository": "git@github.com:WrathChaos/react-native-bounceable.git",
@@ -24,10 +24,6 @@
     "ui-lib",
     "rn"
   ],
-  "peerDependencies": {
-    "react": ">= 16.x.x",
-    "react-native": ">= 0.55.x"
-  },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
