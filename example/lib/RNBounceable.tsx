@@ -1,16 +1,7 @@
 import * as React from "react";
-import {
-  Animated,
-  ViewStyle,
-  StyleProp,
-  Pressable,
-  PressableProps,
-} from "react-native";
-const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+import { Animated, Pressable, PressableProps } from "react-native";
 
-type CustomStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
 export interface IRNBounceableProps extends PressableProps {
-  onPress?: () => void;
   bounceEffectIn?: number;
   bounceEffectOut?: number;
   bounceVelocityIn?: number;
@@ -18,65 +9,83 @@ export interface IRNBounceableProps extends PressableProps {
   bouncinessIn?: number;
   bouncinessOut?: number;
   useNativeDriver?: boolean;
-  children?: React.ReactNode;
-  style?: CustomStyleProp;
+  style?: PressableProps["style"];
 }
 
-interface IState {
-  bounceValue: any;
-}
+type PressableRef = React.ElementRef<typeof Pressable>;
 
-export default class RNBounceable extends React.Component<
-  IRNBounceableProps,
-  IState
-> {
-  constructor(props: IRNBounceableProps) {
-    super(props);
-    this.state = {
-      bounceValue: new Animated.Value(1),
-    };
-  }
+const RNBounceableInner = (
+  props: IRNBounceableProps,
+  ref: React.Ref<PressableRef>,
+) => {
+  const {
+    bounceEffectIn = 0.93,
+    bounceEffectOut = 1,
+    bounceVelocityIn = 0.1,
+    bounceVelocityOut = 0.4,
+    bouncinessIn = 0,
+    bouncinessOut = 0,
+    useNativeDriver = true,
+    style,
+    onPressIn,
+    onPressOut,
+    onPress,
+    disabled,
+    children,
+    ...rest
+  } = props;
 
-  bounceAnimation = (value: number, velocity: number, bounciness: number) => {
-    const { useNativeDriver = true } = this.props;
-    Animated.spring(this.state.bounceValue, {
-      toValue: value,
-      velocity,
-      bounciness,
-      useNativeDriver,
-    }).start();
-  };
+  const bounceValue = React.useRef<Animated.Value>(new Animated.Value(1)).current;
 
-  render() {
-    const {
-      bounceEffectIn = 0.93,
-      bounceEffectOut = 1,
-      bounceVelocityIn = 0.1,
-      bounceVelocityOut = 0.4,
-      bouncinessIn = 0,
-      bouncinessOut = 0,
-      children,
-      style,
-      onPress,
-    } = this.props;
-    return (
-      <AnimatedPressable
-        {...this.props}
-        style={[{ transform: [{ scale: this.state.bounceValue }] }, style]}
-        onPressIn={() => {
-          this.bounceAnimation(bounceEffectIn, bounceVelocityIn, bouncinessIn);
-        }}
-        onPressOut={() => {
-          this.bounceAnimation(
-            bounceEffectOut,
-            bounceVelocityOut,
-            bouncinessOut,
-          );
-        }}
+  const bounceAnimation = React.useCallback(
+    (value: number, velocity: number, bounciness: number) => {
+      Animated.spring(bounceValue, {
+        toValue: value,
+        velocity,
+        bounciness,
+        useNativeDriver,
+      }).start();
+    },
+    [bounceValue, useNativeDriver],
+  );
+
+  const handlePressIn = React.useCallback<NonNullable<PressableProps["onPressIn"]>>(
+    (event) => {
+      if (!disabled) {
+        bounceAnimation(bounceEffectIn, bounceVelocityIn, bouncinessIn);
+      }
+      onPressIn?.(event);
+    },
+    [disabled, bounceAnimation, bounceEffectIn, bounceVelocityIn, bouncinessIn, onPressIn],
+  );
+
+  const handlePressOut = React.useCallback<NonNullable<PressableProps["onPressOut"]>>(
+    (event) => {
+      if (!disabled) {
+        bounceAnimation(bounceEffectOut, bounceVelocityOut, bouncinessOut);
+      }
+      onPressOut?.(event);
+    },
+    [disabled, bounceAnimation, bounceEffectOut, bounceVelocityOut, bouncinessOut, onPressOut],
+  );
+
+  return (
+    <Animated.View style={{ transform: [{ scale: bounceValue }] }}>
+      <Pressable
+        ref={ref as any}
+        {...rest}
+        style={style}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
         onPress={onPress}
+        disabled={disabled}
       >
         {children}
-      </AnimatedPressable>
-    );
-  }
-}
+      </Pressable>
+    </Animated.View>
+  );
+};
+
+const RNBounceable = React.memo(React.forwardRef(RNBounceableInner));
+
+export default RNBounceable;

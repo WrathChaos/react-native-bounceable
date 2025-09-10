@@ -1,4 +1,4 @@
-<img alt="React Native Bounceable" src="assets/logo.png" width="1050"/>
+r<img alt="React Native Bounceable" src="assets/logo.png" width="1050"/>
 
 [![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-native-bounceable)
 
@@ -49,16 +49,141 @@ You can put **ANY children component** inside the **RNBounceable** component, it
 </RNBounceable>
 ```
 
+## Basic Examples
+
+### 1) Simple button
+
+```jsx
+<RNBounceable
+  onPress={() => console.log('Pressed!')}
+  bounceEffectIn={0.92}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.2}
+  bounceVelocityOut={0.45}
+  bouncinessIn={6}
+  bouncinessOut={0}
+  style={{
+    backgroundColor: '#111827', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12,
+  }}
+>
+  <Text style={{ color: '#fff', fontWeight: '600' }}>Tap me</Text>
+</RNBounceable>
+```
+
+### 2) Pressed feedback (function style)
+
+```jsx
+<RNBounceable
+  bounceEffectIn={0.97}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.15}
+  bounceVelocityOut={0.4}
+  bouncinessIn={0}
+  bouncinessOut={0}
+  style={(state) => [{
+    paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12,
+    backgroundColor: state.pressed ? '#0ea5e9' : '#3b82f6',
+  }]}
+  onPress={() => {}}
+>
+  <Text style={{ color: '#fff', fontWeight: '600' }}>Pressed color</Text>
+</RNBounceable>
+```
+
+### 3) Custom bounce tuning
+
+```jsx
+<RNBounceable
+  bounceEffectIn={0.88}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.35}
+  bounceVelocityOut={0.7}
+  bouncinessIn={16}
+  bouncinessOut={6}
+  style={{ backgroundColor: '#22c55e', padding: 12, borderRadius: 12 }}
+>
+  <Text style={{ color: '#fff', fontWeight: '700' }}>Custom spring</Text>
+</RNBounceable>
+```
+
+### 4) Disabled (no bounce)
+
+```jsx
+<RNBounceable disabled style={{
+  backgroundColor: '#9ca3af', padding: 12, borderRadius: 12, opacity: 0.6,
+}}>
+  <Text style={{ color: '#fff' }}>Disabled</Text>
+</RNBounceable>
+```
+
+### 5) onPressIn / onPressOut
+
+```jsx
+<RNBounceable
+  bounceEffectIn={0.95}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.25}
+  bounceVelocityOut={0.5}
+  bouncinessIn={10}
+  bouncinessOut={0}
+  onPressIn={() => console.log('press in')}
+  onPressOut={() => console.log('press out')}
+  style={{ backgroundColor: '#111827', padding: 12, borderRadius: 12 }}
+>
+  <Text style={{ color: '#fff' }}>Press events</Text>
+</RNBounceable>
+```
+
+### 6) Long press
+
+```jsx
+<RNBounceable
+  bounceEffectIn={0.85}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.4}
+  bounceVelocityOut={0.65}
+  bouncinessIn={14}
+  bouncinessOut={4}
+  onLongPress={() => console.log('long press')}
+  delayLongPress={300}
+  style={{ backgroundColor: '#111827', padding: 12, borderRadius: 12 }}
+>
+  <Text style={{ color: '#fff' }}>Hold me</Text>
+</RNBounceable>
+```
+
+### 7) Icon / Image as child
+
+```jsx
+<RNBounceable
+  bounceEffectIn={0.9}
+  bounceEffectOut={1}
+  bounceVelocityIn={0.5}
+  bounceVelocityOut={0.6}
+  bouncinessIn={18}
+  bouncinessOut={6}
+  onPress={() => {}}
+  style={{ height: 44, width: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}
+>
+  <Text style={{ fontSize: 20 }}>❤️</Text>
+</RNBounceable>
+```
+
 # Configuration - Props
 
-| Property        |   Type   |  Default  | Description                                      |
-| --------------- | :------: | :-------: | ------------------------------------------------ |
-| onPress         | function | undefined | set your own logic for the onPress functionality |
-| style           |  style   | undefined | set the style like any other View container      |
-| bounceEffect    |  number  |    0.9    | change the bounce effect's value                 |
-| bounceFriction  |  number  |     3     | change the bounce effect's friction value        |
-| useNativeDriver | boolean  |   true    | change the useNativeDriver's usage               |
-| animate         | function |  default  | activate the bounce effect animation             |
+| Property           |        Type        | Default | Description                                                |
+| ------------------ | :----------------: | :-----: | ---------------------------------------------------------- |
+| onPress            |      function      |    -    | Callback for press                                         |
+| style              | Pressable `style`  |    -    | Style object/array or function `(state) => style`          |
+| bounceEffectIn     |       number       |  0.93   | Scale value applied on press in                            |
+| bounceEffectOut    |       number       |    1    | Scale value applied on press out                           |
+| bounceVelocityIn   |       number       |  0.1    | Spring velocity for press in                               |
+| bounceVelocityOut  |       number       |  0.4    | Spring velocity for press out                              |
+| bouncinessIn       |       number       |    0    | Spring bounciness for press in                             |
+| bouncinessOut      |       number       |    0    | Spring bounciness for press out                            |
+| useNativeDriver    |      boolean       |  true   | Use native driver for animation                            |
+
+All React Native `Pressable` props are supported and forwarded (including `onPressIn`, `onPressOut`, `disabled`, and `ref`). The bounce effect is skipped when `disabled` is true.
 
 ## Future Plans
 

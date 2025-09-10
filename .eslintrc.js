@@ -4,7 +4,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "@react-native-community",
     "prettier",
   ],
   ignorePatterns: [
@@ -25,16 +24,17 @@ module.exports = {
     "react-hooks",
     "@typescript-eslint",
     "promise",
-    "jest",
     "unused-imports",
   ],
   env: {
     browser: true,
     es2021: true,
-    "jest/globals": true,
     "react-native/react-native": true,
   },
   settings: {
+    react: {
+      version: "detect",
+    },
     "import/resolver": {
       node: {
         extensions: [
@@ -58,6 +58,14 @@ module.exports = {
         ],
       },
     },
+    // Ensure the import plugin does not try to parse node_modules with the TS parser
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    // Treat react-native as a core module and skip deep parsing
+    "import/core-modules": ["react-native"],
+    // And in general, do not attempt to parse files in node_modules
+    "import/ignore": ["node_modules/"],
   },
   rules: {
     quotes: [
@@ -80,10 +88,12 @@ module.exports = {
         constant: "always",
       },
     ],
-    "no-useless-catch": 0,
-    "react-hooks/exhaustive-deps": 0,
+    "react-hooks/exhaustive-deps": [
+      "error",
+      { additionalHooks: "(useMemoOne)" },
+    ],
     "max-len": ["error", 120],
-    "@typescript-eslint/ban-ts-comment": 1,
+    "@typescript-eslint/ban-ts-comment": 2,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/no-explicit-any": 1,
     "@typescript-eslint/explicit-module-boundary-types": 0,
@@ -110,6 +120,8 @@ module.exports = {
     "import/no-deprecated": 0,
     "@typescript-eslint/indent": 0,
     "react-hooks/rules-of-hooks": 2,
+    "unused-imports/no-unused-imports": 2,
+    "unused-imports/no-unused-vars": 2,
     camelcase: 2,
     "prefer-destructuring": 2,
     "no-nested-ternary": 2,

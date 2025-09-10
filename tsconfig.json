@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "es6",
-    "lib": ["es6"],
+    "lib": [
+      "es6"
+    ],
     "allowJs": true,
     "jsx": "react-native",
     "noImplicitAny": false,
@@ -12,6 +14,7 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "outDir": "build/dist",
+    "rootDir": "lib",
     "noEmitHelpers": true,
     "alwaysStrict": true,
     "strictFunctionTypes": true,
@@ -24,11 +27,36 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "typeRoots": ["./node_modules/@types", "./@types"],
     "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "sourceMap": true /* Generates corresponding '.map' file. */
+    "sourceMap": true /* Generates corresponding '.map' file. */,
+    "paths": {
+      "@lib": [
+        "lib/index.ts"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@components": [
+        "lib/ui/index.ts"
+      ],
+      "@components/*": [
+        "lib/ui/*"
+      ],
+      "@screens": [
+        "lib/ui/screens/index.ts"
+      ],
+      "@screens/*": [
+        "lib/ui/screens/*"
+      ]
+    }
   },
+  "include": [
+    "lib/**/*"
+  ],
   "exclude": [
+    "build",
+    "build/**",
+    "lib/services/revenuecat/notyRevenueCatService.ts",
     "example",
     "example-manual-state",
     "node_modules",
