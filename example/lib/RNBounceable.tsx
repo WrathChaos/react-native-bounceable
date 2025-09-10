@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Animated, Pressable, PressableProps } from "react-native";
+import { Animated, Pressable, PressableProps, View } from "react-native";
+const AnimatedView: any = Animated.createAnimatedComponent(View);
 
 export interface IRNBounceableProps extends PressableProps {
   bounceEffectIn?: number;
@@ -70,7 +71,7 @@ const RNBounceableInner = (
   );
 
   return (
-    <Animated.View style={{ transform: [{ scale: bounceValue }] }}>
+    <AnimatedView style={{ transform: [{ scale: bounceValue }] }}>
       <Pressable
         ref={ref as any}
         {...rest}
@@ -82,7 +83,7 @@ const RNBounceableInner = (
       >
         {children}
       </Pressable>
-    </Animated.View>
+    </AnimatedView>
   );
 };
 
