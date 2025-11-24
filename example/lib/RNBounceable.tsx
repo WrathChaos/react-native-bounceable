@@ -1,6 +1,16 @@
 import * as React from "react";
-import { Animated, Pressable, PressableProps, View } from "react-native";
-const AnimatedView: any = Animated.createAnimatedComponent(View);
+import {
+  Animated,
+  Pressable,
+  PressableProps,
+  PressableStateCallbackType,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
+
+const AnimatedPressable = Animated.createAnimatedComponent(
+  Pressable as unknown as React.ComponentClass<PressableProps>,
+) as React.ComponentClass<PressableProps>;
 
 export interface IRNBounceableProps extends PressableProps {
   bounceEffectIn?: number;
@@ -70,20 +80,36 @@ const RNBounceableInner = (
     [disabled, bounceAnimation, bounceEffectOut, bounceVelocityOut, bouncinessOut, onPressOut],
   );
 
+  const animatedTransformStyle = React.useMemo<StyleProp<ViewStyle>>(
+    () => ({
+      transform: [{ scale: bounceValue }],
+    }),
+    [bounceValue],
+  );
+
+  const composedStyle = React.useMemo<PressableProps["style"]>(() => {
+    if (typeof style === "function") {
+      return (pressState: PressableStateCallbackType) => [
+        animatedTransformStyle,
+        style(pressState),
+      ];
+    }
+
+    return [animatedTransformStyle, style];
+  }, [style, animatedTransformStyle]);
+
   return (
-    <AnimatedView style={{ transform: [{ scale: bounceValue }] }}>
-      <Pressable
-        ref={ref as any}
-        {...rest}
-        style={style}
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
-        onPress={onPress}
-        disabled={disabled}
-      >
-        {children}
-      </Pressable>
-    </AnimatedView>
+    <AnimatedPressable
+      ref={ref as any}
+      {...rest}
+      style={composedStyle}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      onPress={onPress}
+      disabled={disabled}
+    >
+      {children}
+    </AnimatedPressable>
   );
 };
 
