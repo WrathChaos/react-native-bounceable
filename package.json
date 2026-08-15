@@ -1,6 +1,6 @@
 {
-  "name": "@freakycoder/react-native-bounceable",
-  "version": "2.1.0",
+  "name": "@kuraydev/react-native-bounceable",
+  "version": "3.0.0",
   "description": "Animate and bounce any component with RNBounceable for React Native",
   "main": "./build/dist/RNBounceable.js",
   "repository": "git@github.com:WrathChaos/react-native-bounceable.git",
@@ -65,5 +65,23 @@
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "lint": "node ./scripts/terminal/lint.mjs",
     "prettier": "node ./scripts/terminal/prettier.mjs"
-  }
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-native": ">=0.64.0"
+  },
+  "types": "./build/dist/RNBounceable.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/dist/RNBounceable.d.ts",
+      "default": "./build/dist/RNBounceable.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "build",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ]
 }
